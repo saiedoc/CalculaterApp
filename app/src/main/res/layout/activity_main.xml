@@ -3,216 +3,206 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     android:background="#EDEAEA">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/NumbersCard"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="96dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        app:cardBackgroundColor="#FAF7F7"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="700dp"
+        android:layout_margin="25dp"
+        android:gravity="bottom|center_horizontal|top|center_vertical"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="25dp">
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/KeyboardCard"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="30dp"
-        android:padding="25dp"
-        app:cardBackgroundColor="#FAF7F7"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NumbersCard">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/NumbersCard"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/txtScreen"
-            android:layout_margin="25dp"
-            android:orientation="vertical">
+            android:layout_height="96dp"
+            android:layout_margin="15dp"
+            app:cardBackgroundColor="#FAF7F7"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp">
 
-            <LinearLayout
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/KeyboardCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="10dp"
+            app:cardBackgroundColor="#FAF7F7"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="15dp">
+
+
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:gravity="center_horizontal|top|center_vertical">
 
-                <Button
-                    android:id="@+id/btnSeven"
-                    android:layout_width="55dp"
-                    android:layout_height="75dp"
-                    android:layout_margin="10dp"
-                    android:text="7"
-                    android:textColor="@color/black" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
 
-                <Button
-                    android:id="@+id/btnEight"
-                    android:layout_width="55dp"
-                    android:layout_height="75dp"
-                    android:layout_margin="10dp"
-                    android:text="8"
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button40"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnNine"
-                    android:layout_width="55dp"
-                    android:layout_height="75dp"
-                    android:layout_margin="10dp"
-                    android:text="9"
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button39"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnDivide"
-                    android:layout_width="55dp"
-                    android:layout_height="75dp"
-                    android:layout_margin="10dp"
-                    android:text="/"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/button38"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/button37"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnFour"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="4"
-                    android:textColor="@color/black" />
+                </TableRow>
 
-                <Button
-                    android:id="@+id/btnFive"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="5"
-                    android:textColor="@color/black" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
 
-                <Button
-                    android:id="@+id/btnSix"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="6"
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button40"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnMultiply"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="*"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/button39"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/button38"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnOne"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="1"
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button37"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnTwo"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="2"
-                    android:textColor="@color/black" />
+                </TableRow>
 
-                <Button
-                    android:id="@+id/btnThree"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="3"
-                    android:textColor="@color/black" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
 
-                <Button
-                    android:id="@+id/btnSubtract"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="-"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/button41"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal">
+                    <Button
+                        android:id="@+id/button42"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnDot"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="."
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button43"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-                <Button
-                    android:id="@+id/btnZero"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="0"
-                    android:textColor="@color/black" />
+                    <Button
+                        android:id="@+id/button44"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
+                </TableRow>
 
-                <Button
-                    android:id="@+id/btnClear"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="C"
-                    android:textColor="@color/black" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
 
-                <Button
-                    android:id="@+id/btnAdd"
-                    android:layout_width="55dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:text="+"
-                    android:textColor="@color/black" />
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/button45"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-            <Button
-                android:id="@+id/btnEqual"
-                android:layout_width="55dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center_horizontal"
-                android:text="="
-                android:textColor="@color/black" />
-        </LinearLayout>
+                    <Button
+                        android:id="@+id/button46"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
 
-    </androidx.cardview.widget.CardView>
+                    <Button
+                        android:id="@+id/button47"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
+
+                    <Button
+                        android:id="@+id/button48"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:text="Button" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
