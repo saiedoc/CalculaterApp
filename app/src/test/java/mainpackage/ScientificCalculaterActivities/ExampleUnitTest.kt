@@ -1,4 +1,4 @@
-package mainpackage.ScientificCalculater
+package mainpackage.ScientificCalculaterActivities
 
 import org.junit.Test
 
