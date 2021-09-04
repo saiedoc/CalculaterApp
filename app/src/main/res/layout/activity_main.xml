@@ -7,13 +7,21 @@
     android:background="#EDEAEA">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="700dp"
-        android:layout_margin="25dp"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_weight="1"
         android:gravity="bottom|center_horizontal|top|center_vertical"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="25dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/NumbersCard"
@@ -24,6 +32,17 @@
             app:cardCornerRadius="15dp"
             app:cardElevation="15dp">
 
+            <EditText
+                android:id="@+id/calcResult"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:background="@android:color/transparent"
+                android:enabled="false"
+                android:gravity="center_vertical"
+                android:inputType="none"
+                android:textSize="22sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -49,36 +68,48 @@
                     android:padding="5dp">
 
                     <Button
-                        android:id="@+id/button40"
+                        android:id="@+id/numpad1"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="1"
+                        android:textColor="#000000"
+                        app:elevation="15dp" />
 
                     <Button
-                        android:id="@+id/button39"
+                        android:id="@+id/numpad2"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="2"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button38"
+                        android:id="@+id/numpad3"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="3"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button37"
+                        android:id="@+id/numpadEqual"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="="
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                 </TableRow>
 
@@ -88,36 +119,48 @@
                     android:padding="5dp">
 
                     <Button
-                        android:id="@+id/button40"
+                        android:id="@+id/numpad4"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="4"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button39"
+                        android:id="@+id/numpad5"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="5"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button38"
+                        android:id="@+id/numpad6"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="6"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button37"
+                        android:id="@+id/numpadAdd"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="+"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                 </TableRow>
 
@@ -127,81 +170,115 @@
                     android:padding="10dp">
 
                     <Button
-                        android:id="@+id/button41"
+                        android:id="@+id/numpad7"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="7"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button42"
+                        android:id="@+id/numpad8"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="8"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button43"
+                        android:id="@+id/numpad9"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="9"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button44"
+                        android:id="@+id/numpadSubtract"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="-"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="186dp"
                     android:padding="10dp">
 
                     <Button
-                        android:id="@+id/button45"
+                        android:id="@+id/numpadClear"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="C"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button46"
+                        android:id="@+id/numpad0"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="0"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button47"
+                        android:id="@+id/numoadDivide"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="/"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
 
                     <Button
-                        android:id="@+id/button48"
+                        android:id="@+id/numpadMultiply"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Button" />
+                        android:background="@drawable/button_design"
+                        android:text="X"
+                        android:textColor="#000000"
+                        app:elevation="14dp" />
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </TableLayout>
+
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:background="@drawable/button_design"
+            android:text="More"
+            android:textColor="#000000" />
 
     </LinearLayout>
 
