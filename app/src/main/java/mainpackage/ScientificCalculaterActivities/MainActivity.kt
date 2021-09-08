@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
                 if(moreButtonClicked){
 
-
+                    moreButton.setText("MORE")
                     numpadDivideOrLog.setTextSize(14f)
                     numpadDivideOrLog.setText("/")
                     numpadMultiplyOrSqrt.setText("X")
@@ -142,6 +142,7 @@ class MainActivity : AppCompatActivity() {
 
                 }else{
 
+                    moreButton.setText("BACK")
                     numpadDivideOrLog.setTextSize(9f)
                     numpadDivideOrLog.setText("LOG")
                     numpadMultiplyOrSqrt.setText("√")
