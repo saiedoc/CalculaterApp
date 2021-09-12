@@ -290,6 +290,18 @@
                         app:elevation="14dp" />
 
                     <Button
+                        android:id="@+id/dot"
+                        android:layout_width="75dp"
+                        android:layout_height="60dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_design"
+                        android:text="."
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        app:elevation="14dp" />
+
+                    <Button
                         android:id="@+id/delete"
                         android:layout_width="75dp"
                         android:layout_height="60dp"
@@ -300,6 +312,7 @@
                         android:textColor="#000000"
                         android:textSize="10sp"
                         app:elevation="14dp" />
+
                 </TableRow>
             </TableLayout>
 

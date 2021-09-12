@@ -1,11 +1,18 @@
 package mainpackage.ScientificCalculaterActivities
 
-import androidx.appcompat.app.AppCompatActivity
+import ScientificCalculaterClasses.Calculater
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import com.transitionseverywhere.ChangeText
+import com.transitionseverywhere.TransitionManager
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +35,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var numpadSubtractOrCos : Button
     lateinit var numpadMultiplyOrSqrt : Button
     lateinit var numpadDivideOrLog : Button
+    lateinit var numpadDot : Button
     lateinit var numpadClear : Button
+    lateinit var numpadEqual : Button
     lateinit var moreButton : Button
     lateinit var calcResultText : EditText
     var moreButtonClicked : Boolean = false
@@ -67,9 +76,12 @@ class MainActivity : AppCompatActivity() {
         numpadMultiplyOrSqrt = findViewById(R.id.numpadMultiplyOrSqrt)
         numpadButtons.add(numpadMultiplyOrSqrt)
         numpadDivideOrLog = findViewById(R.id.numpadDivideOrLog)
+        numpadDot = findViewById(R.id.dot)
+        numpadButtons.add(numpadDot)
         numpadButtons.add(numpadDivideOrLog)
         numpadClear = findViewById(R.id.numpadClear)
         numpadDelete = findViewById(R.id.delete)
+        numpadEqual = findViewById(R.id.numpadEqual)
         moreButton = findViewById(R.id.moreButton)
         calcResultText = findViewById(R.id.calcResult)
 
@@ -81,25 +93,72 @@ class MainActivity : AppCompatActivity() {
     private fun appendCalculaterText(buttonText : String){
 
         var oldString : String = calcResultText.getText().toString()
-        var newString : String = oldString + buttonText
+
+        if(buttonText.equals("SIN")
+                ||buttonText.equals("COS")
+                ||buttonText.equals("LOG"))
+        {
+            var newString : String = oldString + buttonText.toLowerCase() + "("
+            calcResultText.setText(newString)
+        }
+        else if(buttonText.equals("√")){
+            var newString : String = oldString + "sqrt("
+            calcResultText.setText(newString)
+        }
+        else{
+        var newString : String = oldString + buttonText.toLowerCase()
         calcResultText.setText(newString)
+        }
 
     }
 
     // Function that deletes from calculation text when user clicks delete
 
-    private fun deleteCalculaterText(){
+    private fun deleteCalculaterText() {
 
-        var newString : String = calcResultText.getText().toString().dropLast(1)
-        calcResultText.setText(newString)
+        if (calcResultText.getText().isNotEmpty()) {
+            if (calcResultText.getText().toString().last().toLowerCase() == 'N'.toLowerCase()
+                    || calcResultText.getText().toString().last().toLowerCase() == 'S'.toLowerCase()
+                    || calcResultText.getText().toString().last().toLowerCase() == 'G'.toLowerCase()
+            ) {
+                var newString: String = calcResultText.getText().toString().dropLast(3)
+                calcResultText.setText(newString)
+            } else {
+                var newString: String = calcResultText.getText().toString().dropLast(1)
+                calcResultText.setText(newString)
+            }
+        }
 
     }
+
+
+
+
+    //Function that apply Alpha animation to an calcResultText EditText
+
+    private fun applyAlphaAnimation(newText: String) : AlphaAnimation {
+        val anim = AlphaAnimation(1.0f, 0.0f)
+        anim.duration = 100
+        anim.repeatCount = 1
+        anim.repeatMode = Animation.REVERSE
+
+        anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationEnd(animation: Animation?) { }
+            override fun onAnimationStart(animation: Animation?) { }
+            override fun onAnimationRepeat(animation: Animation?) {
+                calcResultText.setText(newText)
+            }
+        })
+
+        return anim
+    }
+
 
     //Function that clears the calculation text when user clicks C
 
     private fun clearCalculaterText(){
 
-        calcResultText.setText("")
+        calcResultText.startAnimation(applyAlphaAnimation(""))
 
     }
 
@@ -166,6 +225,14 @@ class MainActivity : AppCompatActivity() {
             override fun onClick(view: View?) {
                 clearCalculaterText()
             }
+        })
+
+        numpadEqual.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                var resultString : String = Calculater.getExpressionResult(calcResultText.getText().toString())
+                calcResultText.startAnimation(applyAlphaAnimation(resultString))
+            }
+
         })
 
     }
