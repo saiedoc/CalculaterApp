@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.transitionseverywhere.ChangeText
-import com.transitionseverywhere.TransitionManager
 
 
 class MainActivity : AppCompatActivity() {
@@ -134,9 +131,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    //Function that apply Alpha animation to an calcResultText EditText
+    //Function that applies Alpha animation on calcResultText EditText
 
-    private fun applyAlphaAnimation(newText: String) : AlphaAnimation {
+    private fun applyAlphaAnimationOnResultText(newText: String) : AlphaAnimation {
         val anim = AlphaAnimation(1.0f, 0.0f)
         anim.duration = 100
         anim.repeatCount = 1
@@ -154,11 +151,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
     //Function that clears the calculation text when user clicks C
 
     private fun clearCalculaterText(){
 
-        calcResultText.startAnimation(applyAlphaAnimation(""))
+        calcResultText.startAnimation(applyAlphaAnimationOnResultText(""))
 
     }
 
@@ -184,31 +182,32 @@ class MainActivity : AppCompatActivity() {
            setupOnClickListenersForNumpadButtons(button)
 
         }
+
         moreButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
 
                 if(moreButtonClicked){
 
-                    moreButton.setText("MORE")
+                    moreButton.setText(R.string.StringMore)
                     numpadDivideOrLog.setTextSize(14f)
-                    numpadDivideOrLog.setText("/")
-                    numpadMultiplyOrSqrt.setText("X")
+                    numpadDivideOrLog.setText(R.string.StringDivide)
+                    numpadMultiplyOrSqrt.setText(R.string.StringMultiply)
                     numpadAddOrSin.setTextSize(14f)
-                    numpadAddOrSin.setText("+")
+                    numpadAddOrSin.setText(R.string.StringAdd)
                     numpadSubtractOrCos.setTextSize(14f)
-                    numpadSubtractOrCos.setText("-")
+                    numpadSubtractOrCos.setText(R.string.StringSubtract)
                     moreButtonClicked = false
 
                 }else{
 
-                    moreButton.setText("BACK")
+                    moreButton.setText(R.string.StringBack)
                     numpadDivideOrLog.setTextSize(9f)
-                    numpadDivideOrLog.setText("LOG")
-                    numpadMultiplyOrSqrt.setText("√")
+                    numpadDivideOrLog.setText(R.string.StringLOG)
+                    numpadMultiplyOrSqrt.setText(R.string.StringSQRT)
                     numpadAddOrSin.setTextSize(9f)
-                    numpadAddOrSin.setText("SIN")
+                    numpadAddOrSin.setText(R.string.StringSIN)
                     numpadSubtractOrCos.setTextSize(9f)
-                    numpadSubtractOrCos.setText("COS")
+                    numpadSubtractOrCos.setText(R.string.StringCOS)
                     moreButtonClicked = true
 
                 }
@@ -230,7 +229,7 @@ class MainActivity : AppCompatActivity() {
         numpadEqual.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 var resultString : String = Calculater.getExpressionResult(calcResultText.getText().toString())
-                calcResultText.startAnimation(applyAlphaAnimation(resultString))
+                calcResultText.startAnimation(applyAlphaAnimationOnResultText(resultString))
             }
 
         })
