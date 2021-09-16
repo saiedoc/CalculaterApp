@@ -26,5 +26,5 @@
     <string name="StringDelete">DEL</string>
     <string name="StringMore">MORE</string>
     <string name="StringBack">BACK</string>
-    <string name="StringBLANK" />
+    <string name="StringHistory">HISTORY</string>
 </resources>

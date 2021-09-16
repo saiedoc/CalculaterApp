@@ -1,18 +1,30 @@
 package mainpackage.ScientificCalculaterActivities
 
 import ScientificCalculaterClasses.Calculater
+import ScientificCalculaterClasses.ExpressionDAO
+import ScientificCalculaterClasses.ExpressionDatabase
+import ScientificCalculaterClasses.myExpression
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.widget.Button
 import android.widget.EditText
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.room.Room
+import java.time.LocalDate
 
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var db : ExpressionDatabase
+
+    private lateinit var expressionDao : ExpressionDAO
 
     lateinit var numpadButtons : MutableList<Button>
     lateinit var numpad0 : Button
@@ -36,9 +48,26 @@ class MainActivity : AppCompatActivity() {
     lateinit var numpadClear : Button
     lateinit var numpadEqual : Button
     lateinit var moreButton : Button
+    lateinit var histButton : Button
     lateinit var calcResultText : EditText
     var moreButtonClicked : Boolean = false
+    lateinit var context : Context
 
+    // function that setups room database
+
+    private fun setupDatabase() {
+
+        db = Room.databaseBuilder(
+                this,
+                ExpressionDatabase::class.java, "expressionDatabase"
+        ).allowMainThreadQueries().build()
+
+        expressionDao = db.expressionDao()
+
+    }
+
+
+    // function that find the views of the layout
     private fun findViews(){
 
         numpadButtons = ArrayList<Button>()
@@ -80,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         numpadDelete = findViewById(R.id.delete)
         numpadEqual = findViewById(R.id.numpadEqual)
         moreButton = findViewById(R.id.moreButton)
+        histButton = findViewById(R.id.histButton)
         calcResultText = findViewById(R.id.calcResult)
 
     }
@@ -227,11 +257,23 @@ class MainActivity : AppCompatActivity() {
         })
 
         numpadEqual.setOnClickListener(object : View.OnClickListener {
+            @RequiresApi(Build.VERSION_CODES.O)
             override fun onClick(view: View?) {
                 var resultString : String = Calculater.getExpressionResult(calcResultText.getText().toString())
+                if(resultString != "Wrong format."){
+                var myExp : myExpression = myExpression(expressionString = calcResultText.getText().toString(),resultString = resultString, calculationDate = LocalDate.now().toString())
+                expressionDao.insertExpression(myExp)}
                 calcResultText.startAnimation(applyAlphaAnimationOnResultText(resultString))
             }
 
+        })
+
+        histButton.setOnClickListener(object : View.OnClickListener {
+
+            override fun onClick(view: View?){
+                val switchActivityIntent = Intent(this@MainActivity,ExpressionListActivity::class.java)
+                startActivity(switchActivityIntent)
+            }
         })
 
     }
@@ -243,7 +285,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        context = this
         findViews()
+        setupDatabase()
         setupOnClickListeners()
     }
 }

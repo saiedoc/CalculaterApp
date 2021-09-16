@@ -11,7 +11,7 @@
         android:theme="@style/Theme.ScientificCalculater">
 
 
-        <activity android:name="mainpackage.ScientificCalculaterActivities.SplashActivity">
+        <activity android:name="mainpackage.ScientificCalculaterActivities.SplashActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +19,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="mainpackage.ScientificCalculaterActivities.MainActivity">
+        <activity android:name="mainpackage.ScientificCalculaterActivities.MainActivity" android:screenOrientation="portrait">
         </activity>
+
+        <activity android:name="mainpackage.ScientificCalculaterActivities.ExpressionListActivity" android:screenOrientation="portrait">
+    </activity>
     </application>
 
 </manifest>
