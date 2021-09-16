@@ -136,7 +136,7 @@
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/button_design"
-                        android:text="@string/String4"
+                        android:text="@string/String5"
                         android:textColor="#000000"
                         app:elevation="14dp" />
 
